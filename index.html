@@ -50,37 +50,34 @@
 					<div class="modal-body">
 						<form>
 							<div class="form-group">
-								<!-- <label for="recipient-name" class="col-form-label">Heading:</label> -->
-								<!-- <input type="text" class="form-control" id="recipient-name"> --><h4>Select Option:</h4>
-								<select name="cars" class="custom-select">
+								<h4>Select Option:</h4>
+								<select name="cars" class="custom-select select1">
 									<option selected>Select Option</option>
-									<option value="volvo">Volvo</option>
-    								<option value="fiat">Fiat</option>
-    								<option value="audi">Audi</option>
   								</select>
   								<br>
   								<form>
   									<div class="form-group">
   										<label for="recipient-name" class="col-form-label">Enter Text Here:</label>
-  										<input type="text" class="form-control" id="recipient-name">
+  										<input type="text" class="form-control head2" id="recipient-name">
+  									</div>
+
+  									<div class="modal-footer">
+  										<button type="submit" class="btn btn-primary btn2">Save</button>
   									</div>
   								</form>
   							</div>
   						</form>
-  					</div>
-  					<div class="modal-footer">
-  						<button type="button" class="btn btn-primary">Save</button>
   					</div>
   				</div>
   			</div>
   		</div>
 
 <!-- this one is for form -->
-		<div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+		<div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel3" aria-hidden="true">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
-						<h5 class="modal-title" id="exampleModalLabel2">Add heading</h5>
+						<h5 class="modal-title" id="exampleModalLabel3">Add heading</h5>
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
@@ -89,58 +86,81 @@
 						<form>
 							<div class="form-group">
 								<h5>Heading:</h5>
-								<select name="cars" class="custom-select">
+								<select name="cars" class="custom-select select1">
 									<option selected>Select Heading</option>
-    								<option value="volvo">Volvo</option>
-    								<option value="fiat">Fiat</option>
-    								<option value="audi">Audi</option>
   								</select>
   								<br>
   								<br>
   								<h5>Sub-Heading:</h5>
-								<select name="cars" class="custom-select">
+								<select name="cars" class="custom-select select1">
 									<option selected>Select Sub Heading</option>
-    								<option value="volvo">Volvo Car</option>
-    								<option value="fiat">Fiat Car</option>
-    								<option value="audi">Audi Car</option>
   								</select>
   								<br>
   								<br>
   								<h5>Input:</h5>
-								<select name="cars" class="custom-select">
-									<option selected>Enter Input</option>
-									<option value="volvo">Volvo</option>
-    								<option value="fiat">Fiat</option>
-    								<option value="audi">Audi</option>
+								<select name="cars" class="custom-select select3">
+									<option>Radio</option>
+									<option>Checkbox</option>
+									<option>Text</option>
+									<option>Email</option>
+									<option>Textarea</option>
+									<option>Number</option>
+									<option>Select</option>
+									<option>Button</option>
+									<option>File</option>
   								</select>
   								<br>
   								<br>
   								<form class="form1">
   									<div class="form-group">
   										<label for="recipient-name" class="col-form-label">Enter Your Name:</label>
-  										<input type="text" class="form-control" id="recipient-name" placeholder="Enter Your Name">
+  										<input type="text" class="form-control head3" id="recipient-name" placeholder="Enter Your Name">
   									</div>
   									<div class="form-group">
   										<label for="recipient-name" class="col-form-label">Enter Your Surname:</label>
-  										<input type="text" class="form-control" id="recipient-name" placeholder="Enter Your Surname">
+  										<input type="text" class="form-control head3" id="recipient-name" placeholder="Enter Your Surname">
   									</div>
   									<div class="form-group">
   										<label for="phone-number" class="col-form-label">Enter Your Phone Number:</label>
-  										<input type="tel" class="form-control" id="phone-number" name="phone" placeholder="99-88-77-00-88">
+  										<input type="tel" class="form-control head3" id="phone-number" name="phone" placeholder="99-88-77-00-88">
   									</div>
   									<div class="form-group">
   										<label for="recipient-address" class="col-form-label">Enter Your Address:</label>
-  										<input type="text" class="form-control" id="recipient-address" placeholder="Enter Valid Address">
+  										<input type="text" class="form-control head3" id="recipient-address" placeholder="Enter Valid Address">
   									</div>
   									<div class="form-group">
-  										<label for="recipient-college" class="col-form-label">Enter Your College Name:</label>
-  										<input type="text" class="form-control" id="recipient-college" placeholder="Enter College Name">
+  										<label for="recipient-college" class="col-form-label head3">Enter Your College Name:</label>
+  										<input type="text" class="form-control head3" id="recipient-college" placeholder="Enter College Name">
   									</div>
   									<div class="form-group">
-  										<label for="recipient-name" class="col-form-label">Enter Your Class:</label>
-  										<input type="text" class="form-control" id="recipient-class" placeholder="Enter Your Class">
+  										<label for="recipient-name" class="col-form-label head3">Enter Your Class:</label>
+  										<input type="text" class="form-control head3" id="recipient-class" placeholder="Enter Your Class">
   									</div>
-  							<!-- checkbox starts from here -->
+
+  									<!-- email button starts from here -->
+  									<div class="form-group">
+								    	<label for="email">Enter your email:</label><br>
+								    	<input type="email" class="form-control head3" id="email" placeholder="Enter Your Email">
+								    </div>	
+
+								    <!-- textarea button starts from here -->
+								    <div class="form-group">
+  										<label for="texts">Enter Your Text:</label><br>
+										<!-- <textarea id="texts" name="texts" rows="4" cols="50" placeholder="Enter your text"> -->
+										<textarea id="texts" name="texts" placeholder="Enter your text">
+										
+										</textarea><br>
+									</div>	
+
+  									<!-- radio button starts from here -->
+  									<input type="radio" id="male" name="gender" value="male">
+  									<label for="male">Male</label><br>
+  									<input type="radio" id="female" name="gender" value="female">
+  									<label for="female">Female</label><br>
+								    <input type="radio" id="other" name="gender" value="other">
+								    <label for="other">Other</label><br>   
+								 	<br>
+  									<!-- checkbox starts from here -->
   									<input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
   									<label for="vehicle1"> Required</label><br>
   									<input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
@@ -152,7 +172,7 @@
   						</form>
   					</div>
   					<div class="modal-footer">
-  						<button type="button" class="btn btn-primary">Save</button>
+  						<button type="button" class="btn btn-primary btn3">Save</button>
   					</div>
   				</div>
   			</div>
