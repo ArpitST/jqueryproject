@@ -1,41 +1,41 @@
 $(document).ready(function(){
-	// $("#btn1").click(function(){
 	$(".btn1").click(function(e){
 		e.preventDefault();
 		var heading = $('.head1').val();
-		// console.log(heading)
-		// $("main").append('<section> <h1>' +heading + '</h1>  </section>'); this one is correct
-		$("main").append('<section><div> <h1>' +heading + '</h1> </div> </section>');
+		$("main").append('<section><h1>' +heading + '</h1></section>');
 		$(".select1 option").remove()
 		$(".select1").append('<option value="select">select</option>' )
-		$('main section div h1').each(function(index,value){
-			console.log(index,value)
+		$('main section h1').each(function(index,value){
 			index=index+1;
 			var head = $(this).text()
-			console.log(head)	
-
 			$(".select1").append('<option value="'+index+'">' +head + '</option>');
 		})
-		// $(".select1").append('<option>' +heading + '</option>');
 	});
 
-	$(".btn2").click(function(e){
+	$(".button2").click(function(e){
 		e.preventDefault();
 		var subheading = $('.head2').val();
-		// console.log(subheading)
-		$("main section div h1").append('<h2> ' +subheading + '</h2>');
-		// $("main").append('<div> <h2> ' +heading + '</h2></div>');
+		var headingindex = $('.select1').val();
+		console.log(subheading);
+		console.log(headingindex);
+		$("main section:nth-child("+headingindex+")").append('<div><h2> ' +subheading + '</h2></div>');
 		$(".select2").append('<option>' +subheading + '</option>');
 	});
+
+// till above is correct
 
 	$(".btn3").click(function(e){
 		e.preventDefault();
 		var heading=$('.head3').val();
-		// console.log(heading)
-		$("main section").append('<div> <h3> ' +heading + '</h3> </div>');
+		$("main section").append('<h3> ' +heading + '</h3>');
 		$(".select3").append('<option>' +heading + '</option>');
 	});
-             
+    
+	// to check button value select
+    // $(".select3").on('click',function(e){
+    // 	output=$('input[name=option]:checked').val();
+    // 	document.querySelector('.output').textContent=output;
+    // });     
 });
 
 
