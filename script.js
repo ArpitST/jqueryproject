@@ -23,9 +23,9 @@ $(document).ready(function(){
 		e.preventDefault();
 		var subheading = $('.head2').val();
 		// console.log(subheading)
-		$("main section").append('<div> <h2> ' +subheading + '</h2> </div>');
+		$("main section div h1").append('<h2> ' +subheading + '</h2>');
 		// $("main").append('<div> <h2> ' +heading + '</h2></div>');
-		$(".select1").append('<option>' +subheading + '</option>');
+		$(".select2").append('<option>' +subheading + '</option>');
 	});
 
 	$(".btn3").click(function(e){
@@ -33,7 +33,7 @@ $(document).ready(function(){
 		var heading=$('.head3').val();
 		// console.log(heading)
 		$("main section").append('<div> <h3> ' +heading + '</h3> </div>');
-		$(".select1").append('<option>' +heading + '</option>');
+		$(".select3").append('<option>' +heading + '</option>');
 	});
              
 });
