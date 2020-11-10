@@ -22,8 +22,6 @@ $(document).ready(function(){
 		$("main section:nth-child("+headingindex+")").append('<div><h2> ' +subheading + '</h2></div>');
 		// $(".select2").append('<option>' +subheading + '</option>');
 	});
-
-// till above is correct
 	
 
 // for form section starts from here
@@ -70,21 +68,39 @@ $(document).ready(function(){
     				$('main section:nth-child('+hjk+') div:nth-child('+hhh+')').append('<p><label>'+fucntionvalue+'</label><input type= '+fminin+' value='+vaalue+' class= '+claase+' name='+naaame+'><button onclick="MYfunction(this)">X</button></p>');
     			}
     		});
+    	}	
+    	
+    	else if(fminin=='radio'){
+    		var opn=opption.split(',');
+    		console.log(opn)
+    		// var fr=$('<p></p>');
+    		$(opn).each(function(key,fucntionvalue){
+    			console.log(fucntionvalue)
+    			if(vaalue==fucntionvalue){
+    				$('main section:nth-child('+hjk+') div:nth-child('+hhh+')').append('<p><label>'+fucntionvalue+'</label><input type="'+fminin+'" value="'+vaalue+'" class= '+claase+' name="'+naaame+'"checked="checked"><button onclick=MYfunction(this)">o</button></p>');
+    			}
+    			else{
+    				$('main section:nth-child('+hjk+') div:nth-child('+hhh+')').append('<p><label>'+fucntionvalue+'</label><input type= '+fminin+' value='+vaalue+' class='+claase+' name='+naaame+'><button onclick=MYfunction(this)">o</button></p>');
+    			}
+    		});
+    	}
+
+    	// till above is correct
+
+    	else if(fminin=='text'){
+    		var opn=opption.split(',');
+    		console.log(opn)
+    		$(opn).each(function(key,fucntionvalue){
+    			console.log(fucntionvalue)
+    			if(vaalue==fucntionvalue){
+    				$('main section:nth-child('+hjk+') div:nth-child('+hhh+')').append('<p><label>'+fucntionvalue+'</label><input type="'+fminin+'" value="'+vaalue+'" class= '+claase+' name="'+naaame+'"checked="checked"><button onclick=MYfunction(this)">o</button></p>');
+    			}
+    			else{
+    				$('main section:nth-child('+hjk+') div:nth-child('+hhh+')').append('<p><label>'+fucntionvalue+'</label><input type= '+fminin+' value='+vaalue+' class='+claase+' name='+naaame+'><button onclick=MYfunction(this)">o</button></p>');
+    			}
+    		});
     	}
     });
-
-  //   	else if(fminin=='radio'){
-  //   		var optiion=opn.split(',');
-  //   		var fr=$('<p></p>');
-  //   		$(opns).each(function(key,subval){
-  //   			if(vaaalue==subval){
-  //   				$(fr).append('<label>'+subval+'</label><input type= '+fminin+' value='+vaalue+' claase= '+cls+' name='+nm+'><button onclick=MYfunction(this)">X</button>');
-  //   			}
-  //   			else{
-  //   				$(aws).append('<label>'+subval+'</label><input type= '+fminin+' value='+vaalue+' claase='+cls+' name='+nm+'><button onclick=MYfunction(this)">X</button>');
-  //   			}
-  //   		});
-  //   	}
 
   //   	else if(fminin=='select'){
   //   		var optiion=opn.split(',');
