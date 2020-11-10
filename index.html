@@ -64,7 +64,6 @@
   										<label class="col-form-label">Enter sub heading Here:</label>
   										<input type="text" class="form-control head2" id="Sub-heading">
   									</div>
-
   									<div class="modal-footer">
   										<button type="submit" class="btn btn-primary button2">Save</button>
   									</div>
@@ -86,59 +85,81 @@
 							<span aria-hidden="true">&times;</span>
 						</button>
 					</div>
-					<div class="modal-body">
-						<form>
+					<!-- <div class="modal-body"> -->
+						<form class="formfh">
 							<div class="form-group">
 								<h5>Select Heading Here:</h5>
-								<select name="cars" class="custom-select select4">
-									<option selected>Select Heading</option>
-  								</select>
-  								<br>
+								<!-- <select name="cars" class="custom-select select4"> -->
+								<div class="dropdown frmhdg">
+									<select class="custom-select select4">
+										<!-- <option selected>Select Heading</option> -->
+										<option value="select head">Select Heading</option>
+	  								</select>
+	  							</div>	
   								<br>
   								<h5>Select Sub-Heading Here:</h5>
-								<select name="cars" class="custom-select select2">
-									<option selected>	Select Sub Heading</option>
-  								</select>
-  								<br>
+  								<div class="dropdown sbhdg">
+								<!-- <select name="cars" class="custom-select select2"> -->
+									<select class="custom-select select2">
+									<!-- <option selected>Select Sub Heading</option> -->
+										<option value="select subhead">Select Sub Heading</option>
+  									</select>
+  								</div>	
   								<br>
   								<h5>Select Input Here:</h5>
-								<select name="cars" class="custom-select select3">
-									<option selected>Select Button</option>
-									<option>Radio</option>
-									<option>Checkbox</option>
-									<option>Text</option>
-									<option>Email</option>
-									<option>Textarea</option>
-									<option>Number</option>
-									<option>Select</option>
-									<option>Button</option>
-									<option>File</option>
+								<!-- <select name="cars" class="custom-select select3"> -->
+								<select class="custom-select select3">
+									<!-- <option selected>Select Button</option> -->
+									<option value="select input">Select Input</option>
+									<option value="radio">Radio</option>
+									<option value="checkbox">Checkbox</option>
+									<option value="text">Text</option>
+									<option value="email">Email</option>
+									<option value="textarea">Textarea</option>
+									<option value="number">Number</option>
+									<option value="select">Select</option>
+									<option value="button">Button</option>
+									<option value="file">File</option>
   								</select>
   								<br>
   								<br>
   								<form class="form1">
   									<div class="form-group">
-  										<h3>Input</h3>
-  										<input type="text" class="form-control head3" id="recipient-name" placeholder="label">
-  										<input type="text" class="form-control head3" id="recipient-name" placeholder="name">
-  										<input type="text" class="form-control head3" id="recipient-name" placeholder="placeholder">
-  										<input type="text" class="form-control head3" id="recipient-name" placeholder="class">
-  										<input type="text" class="form-control head3" id="recipient-name" placeholder="value">
-  										<input type="text" class="form-control head3" id="recipient-name" placeholder="option">
-								 	<br>
-  									<!-- checkbox starts from here -->
-  									<input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-  									<label for="vehicle1"> Required</label><br>
-  									<input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
-  									<label for="vehicle2">Readonly</label><br>
-  									<input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
-  									<label for="vehicle3">Disable</label><br><br>
+  										<!-- <h3>Input</h3> -->
+  										<label for="form-in" class="inputf">Input</label>
+  										<!-- <input type="text" class="form-control head3" id="recipient-name" placeholder="label"> -->
+  										<input type="text" class="form-control lable" id="label" placeholder="label">
+  										<!-- <input type="text" class="form-control head3" id="recipient-name" placeholder="name"> -->
+  										<input type="text" class="form-control naaaam" id="name" placeholder="name">
+  										<!-- <input type="text" class="form-control head3" id="recipient-name" placeholder="placeholder"> -->
+  										<input type="text" class="form-control plachol" id="placeholder" placeholder="placeholder">
+  										<!-- <input type="text" class="form-control head3" id="recipient-name" placeholder="class"> -->
+  										<input type="text" class="form-control clase" id="class" placeholder="class">
+  										<!-- <input type="text" class="form-control head3" id="recipient-name" placeholder="value"> -->
+  										<input type="text" class="form-control vl" id="value" placeholder="value">
+  										<input type="text" class="form-control opti" id="option" placeholder="option">
+								 		<br>
+  										<!-- checkbox starts from here -->
+  										<!-- <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+  										<label for="vehicle1"> Required</label><br> -->
+  										<input type="checkbox" class="disable" id="disable" name="disable" value="disable">
+										<label for="disable">Disable</label><br>
+
+  										<!-- <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+  										<label for="vehicle2">Readonly</label><br> -->
+  										<input type="checkbox" class="readonly" id="readonly" name="readonly" value="readonly">
+										<label for="readonly">Readonly</label><br>
+  										<!-- <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+  										<label for="disable">Disable</label><br><br> -->
+  										<input type="checkbox" class="required" id="required" name="required" value="required">
+										<label for="required">Required</label><br>
+									</div>		
+  									<div class="modal-footer foot">
+  										<button type="submit" class="btn btn-primary btn3">Submit</button>
+  									</div>
   								</form>
   							</div>
   						</form>
-  					</div>
-  					<div class="modal-footer">
-  						<button type="submit" class="btn btn-primary btn3">Submit</button>
   					</div>
   				</div>
   			</div>
