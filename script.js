@@ -85,21 +85,10 @@ $(document).ready(function(){
     		});
     	}
 
-    	// till above is correct
-
-    	else if(fminin=='text'){
-    		var opn=opption.split(',');
-    		console.log(opn)
-    		$(opn).each(function(key,fucntionvalue){
-    			console.log(fucntionvalue)
-    			if(vaalue==fucntionvalue){
-    				$('main section:nth-child('+hjk+') div:nth-child('+hhh+')').append('<p><label>'+fucntionvalue+'</label><input type="'+fminin+'" value="'+vaalue+'" class= '+claase+' name="'+naaame+'"checked="checked"><button onclick=MYfunction(this)">o</button></p>');
-    			}
-    			else{
-    				$('main section:nth-child('+hjk+') div:nth-child('+hhh+')').append('<p><label>'+fucntionvalue+'</label><input type= '+fminin+' value='+vaalue+' class='+claase+' name='+naaame+'><button onclick=MYfunction(this)">o</button></p>');
-    			}
-    		});
+    	else if(fminin=='textarea'){
+    		$('main section:nth-child('+hjk+') div:nth-child('+hhh+')').append('<p><label>'+lbbl+'</label><input name='+naaame+' placeholder='+placcehol+' rows="4" cols="10" value='+vaalue+'><button>X</button></p>');
     	}
+    	// till above is correct
     });
 
   //   	else if(fminin=='select'){
@@ -114,10 +103,6 @@ $(document).ready(function(){
   //   				$(ae).append('<option value="'+opns[i]+'">'+opns[i]+'</option>')
   //   			}
   //   		}
-  //   	}
-
-  //   	else if(fminin=='textarea'){
-  //   		$('main section:nth-child('+fsh+') div:nth-child('+fss+')').append('<p><label>'+lbl+'</label><input name='+nm+' placeholder='+plachol+' rows="4" cols="50" value='+vlu+'><button>X</button></p>');
   //   	}
 
   //   	if ($(".disable").is(':checked')){
