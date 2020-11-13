@@ -107,10 +107,10 @@ $(document).ready(function(){
     }
 
     else if(fminin=='textarea'){
-    	$('main section:nth-child('+hjk+') div:nth-child('+hhh+')').append('<p><label>'+lbbl+'</label><textarea name='+naaame+' placeholder='+placcehol+' rows="4" cols="10" value='+vaalue+'><button>X</button></textarea></p>');
+    	$('main section:nth-child('+hjk+') div:nth-child('+hhh+')').append('<p><label>'+lbbl+'</label><textarea name='+naaame+' placeholder='+placcehol+' rows="4" cols="10" value='+vaalue+'></textarea><button>X</button></p>');
     }
     else {
-      $('main section:nth-child('+hjk+') div:nth-child('+hhh+')').append('<p><label>'+lbbl+'</label><textarea type='+fminin+' name='+naaame+' placeholder='+placcehol+'  class='+claase+' value='+vaalue+'><button onclick="MYfunction(this)">X</button></textarea></p>');
+      $('main section:nth-child('+hjk+') div:nth-child('+hhh+')').append('<p><label>'+lbbl+'</label><input type='+fminin+' name='+naaame+' placeholder='+placcehol+'  class='+claase+' value='+vaalue+'><button onclick="MYfunction(this)">X</button></p>');
     }
     
     if($(".disable").is(':checked')){
@@ -122,18 +122,18 @@ $(document).ready(function(){
       $('main section:nth-child('+hjk+') div:nth-child('+hhh+') p:last-child '+sss).attr('disabled','disabled');
     }
 
-    if($(".readonlyy").is(':checked')){
+    if($(".readonly").is(':checked')){
       var sss=fminin
       if(fminin=='number' || fminin=='email' || fminin=='button' || fminin=='text' || fminin=='checkbox' || fminin=='file' || fminin=='radio')
       {
         sss='input'
       }
-      $('main section:nth-child('+hjk+') div:nth-child('+hhh+') p:last-child '+sss).attr('readonly','readonly');
+      $('main section:nth-child('+hjk+') div:nth-child('+hhh+') p:last-child '+sss).attr('readOnly','readOnly');
     }
 
-    if ($(".reeqquired").is(':checked')){
+    // if($(".reeqquired").is(':checked')){
+    if($(".required").is(':checked')){
       var sss=fminin
-  //   $('.formfh')[0].reset();
       if(fminin=='number' || fminin=='email' || fminin=='button' || fminin=='text' || fminin=='checkbox' || fminin=='file' || fminin=='radio')
       {
         sss='input'
