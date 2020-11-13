@@ -3,7 +3,7 @@ $(document).ready(function(){
 		e.preventDefault();
 		var heading = $('.head1').val();
 		// $("main").append('<section><h1>' +heading + '</h1></section>');
-    $("main").append('<section><h1>' +heading + '<button onclick="MYfunction(this)">X</button>'+'</h1></section>');
+    $("main").append('<section><h1>' +heading + '<button onclick="Myfunction(this)">X</button>'+'</h1></section>');
 		$(".select1 option").remove()
 		$(".select1").append('<option value="select">select</option>');
 		$(".select4 option").remove()
@@ -15,18 +15,20 @@ $(document).ready(function(){
 			$(".select4").append('<option value="'+index+'">' +head + '</option>');
 		});
     $('.formfirst')[0].reset();
-	});     
+	}); 
+
 
 	$(".button2").click(function(e){
 		e.preventDefault();
 		var subheading = $('.head2').val();
 		var headingindex = $('.select1').val();
-		$("main section:nth-child("+headingindex+")").append('<div><h2> ' +subheading + '<button onclick="MYfunction(this)">X</button>' +'</h2></div>');
+		$("main section:nth-child("+headingindex+")").append('<div><h2> ' +subheading + '<button onclick="Myfunction(this)">X</button></h2></div>');
+    // $("main section:nth-child("+headingindex+")").append('<div><h2> ' +subheading + '</h2></div>');
     $('.formsecond')[0].reset();
 		// $(".select2").append('<option>' +subheading + '</option>');
 	});
 
-// form section starts from here
+ // form section starts from here
 
 	$(".select4").change(function(e){
 		var headingindex = $('.select4').val();
@@ -63,9 +65,11 @@ $(document).ready(function(){
       $(opn).each(function(key, fucntionvalue){
     		if(vaalue==fucntionvalue){
     			$(fr).append('<p><label>'+fucntionvalue+'</label><input type= '+fminin+' value='+vaalue+' class= '+claase+' name='+naaame+' selected="selected"><button onclick="MYfunction(this)">X</button></p>');
+          // $(fr).append('<p><label>'+fucntionvalue+'</label><input type= '+fminin+' value='+vaalue+' class= '+claase+' name='+naaame+' selected="selected"></p>');
     		}
     		else{
     			$(fr).append('<p><label>'+fucntionvalue+'</label><input type= '+fminin+' value='+vaalue+' class= '+claase+' name='+naaame+'><button onclick="MYfunction(this)">X</button></p>');
+          // $(fr).append('<p><label>'+fucntionvalue+'</label><input type= '+fminin+' value='+vaalue+' class= '+claase+' name='+naaame+'></p>');
     		}
     	});
       $('main section:nth-child('+hjk+') div:nth-child('+hhh+') ').append(fr);
@@ -77,9 +81,11 @@ $(document).ready(function(){
       $(opn).each(function(key,sval){
         if(vaalue==sval){
           $(fr).append('<p><label>'+opn[key]+'</label><input type="'+fminin+'" class = '+claase+' value="'+vaalue+'" name="'+naaame+'"  checked="checked"><button onclick="MYfunction(this)">X</button></p>')
+          // $(fr).append('<p><label>'+opn[key]+'</label><input type="'+fminin+'" class = '+claase+' value="'+vaalue+'" name="'+naaame+'"  checked="checked"></p>')
         }
         else{
           $(fr).append('<p><label>'+opn[key]+'</label><input type="'+fminin+'" class = '+claase+' value="'+vaalue+'" name="'+naaame+'"><button onclick="MYfunction(this)">X</button></p>');
+          // $(fr).append('<p><label>'+opn[key]+'</label><input type="'+fminin+'" class = '+claase+' value="'+vaalue+'" name="'+naaame+'"></p>');
         }
       });
       $('main section:nth-child('+hjk+') div:nth-child('+hhh+') ').append(fr);
@@ -101,10 +107,10 @@ $(document).ready(function(){
     }
 
     else if(fminin=='textarea'){
-    	$('main section:nth-child('+hjk+') div:nth-child('+hhh+')').append('<p><label>'+lbbl+'</label><input name='+naaame+' placeholder='+placcehol+' rows="4" cols="10" value='+vaalue+'><button>X</button></p>');
+    	$('main section:nth-child('+hjk+') div:nth-child('+hhh+')').append('<p><label>'+lbbl+'</label><textarea name='+naaame+' placeholder='+placcehol+' rows="4" cols="10" value='+vaalue+'><button>X</button></textarea></p>');
     }
     else {
-      $('main section:nth-child('+hjk+') div:nth-child('+hhh+')').append('<p><label>'+lbbl+'</label><input type='+fminin+' name='+naaame+' placeholder='+placcehol+'  class='+claase+' value='+vaalue+'><button onclick="MYfunction(this)">X</button></p>');
+      $('main section:nth-child('+hjk+') div:nth-child('+hhh+')').append('<p><label>'+lbbl+'</label><textarea type='+fminin+' name='+naaame+' placeholder='+placcehol+'  class='+claase+' value='+vaalue+'><button onclick="MYfunction(this)">X</button></textarea></p>');
     }
     
     if($(".disable").is(':checked')){
@@ -122,7 +128,7 @@ $(document).ready(function(){
       {
         sss='input'
       }
-      $('main section:nth-child('+hjk+') div:nth-child('+hhh+') p:last-child '+sss).attr('readonlyy','readonlyy');
+      $('main section:nth-child('+hjk+') div:nth-child('+hhh+') p:last-child '+sss).attr('readonly','readonly');
     }
 
     if ($(".reeqquired").is(':checked')){
@@ -132,15 +138,10 @@ $(document).ready(function(){
       {
         sss='input'
       }
-      $('main section:nth-child('+hjk+') div:nth-child('+hhh+') p:last-child '+sss).attr('reeqquired','reeqquired');
+      $('main section:nth-child('+hjk+') div:nth-child('+hhh+') p:last-child '+sss).attr('required','required');
     }
-    $('.formfh')[0].reset();
+    $('.formfh')[0].reset();  //this for reset form after submitting
   });
-
-  // $("#btnGet").click(function(){
-  //   var selectedText=$(".select3").find("option:selected").text();
-  //   var selectedvalue=$(".select3").val();  
-  // });
 
   // below code is for localstorage
   // var arra=[];
@@ -165,6 +166,12 @@ $(document).ready(function(){
   //   })
   // }
 })
+
+
+// below function is for deleting the elements on deleting heading
+function Myfunction(thisd){
+  var w =$(thisd).parent().parent().remove()
+}
 
 function MYfunction(thise){
   var q =$(thise).parent().remove()
