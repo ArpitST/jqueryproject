@@ -2,9 +2,8 @@ $(document).ready(function(){
 	$(".btn1").click(function(e){
 		e.preventDefault();
 		var heading = $('.head1').val();
-		// $("main").append('<section><h1>' +heading + '</h1></section>');
-    $("main").append('<section><h1>' +heading + '<button onclick="Myfunction(this)">X</button>'+'</h1></section>');
-		$(".select1 option").remove()
+    $("main").append('<section><h1>' +heading+ '<button onclick="Myfunction(this)">X</button>'+'</h1></section>');
+		$(".select1 option").remove() //to remove values from option
 		$(".select1").append('<option value="select">select</option>');
 		$(".select4 option").remove()
 		$(".select4").append('<option value="select">select</option>');
@@ -14,33 +13,67 @@ $(document).ready(function(){
 			$(".select1").append('<option value="'+index+'">' +head + '</option>');
 			$(".select4").append('<option value="'+index+'">' +head + '</option>');
 		});
+    // for reset form
     $('.formfirst')[0].reset();
 	}); 
 
-
+  // this is for sub heading
 	$(".button2").click(function(e){
 		e.preventDefault();
 		var subheading = $('.head2').val();
 		var headingindex = $('.select1').val();
-		$("main section:nth-child("+headingindex+")").append('<div><h2> ' +subheading + '<button onclick="Myfunction(this)">X</button></h2></div>');
-    // $("main section:nth-child("+headingindex+")").append('<div><h2> ' +subheading + '</h2></div>');
+		$("main section:nth-child("+headingindex+")").append('<div><h2> ' +subheading+ '<button onclick="Myfunction(this)">X</button>'+'</h2></div>');
     $('.formsecond')[0].reset();
-		// $(".select2").append('<option>' +subheading + '</option>');
 	});
 
- // form section starts from here
+  // from below code subheading is append in form 
+  $(".select4").change(function(e){
+    var headingindex = $('.select4').val();
+    var hhh = headingindex-1;
+    $(".select2 option").remove()
+    $(".select2").append('<option value="select">Select Sub Heading</option>');
+    $('main section:nth-child('+headingindex+') div h2').each(function(index2,value2){
+      index2=index2+1;
+      // var subhead = $(this).text()
+      var subhead = $(this).text().replace('X','') //this line is added for removing the X sign in appending
+      $('.select2').append('<option value="'+index2+'">' +subhead+ '</option>');
+    });
+  });
 
-	$(".select4").change(function(e){
-		var headingindex = $('.select4').val();
-		var hhh = headingindex-1;
-		$(".select2 option").remove()
-		$(".select2").append('<option value="select">Select Sub Heading</option>')
-		$('main section:nth-child('+headingindex+') div h2').each(function(index2,value2){
-			index2=index2+1;
-			var subhead = $(this).text()
-			$('.select2').append('<option value="'+index2+'">' +subhead + '</option>')
-		});
-	});
+  $(".formfirst").submit(function(e){
+    e.preventDefault();
+    var vallu=$('.heading-name').val();
+    $('main').append('<section><h2>'+vallu+'<button onclick="myfunction(this)">X</button></h2></section>');
+    $(".sbhdg select option").remove();
+    $(".sbhdg select").append('<option value="select heading">Select Heading</option>');
+    $(".frmhdg select option").remove();
+    $(".frmhdg select").append('<option value="select heading">Select Heading</option>');
+    $('main section h2').each(function(key){
+      key=key+1 
+      var opp=$(this).text().replace("X",""); 
+      $(".sbhdg select").append('<option value="'+key+'">'+opp+'</option>'); 
+      $(".frmhdg select").append('<option value="'+key+'">'+opp+'</option>'); 
+    });
+  });
+
+  $('.formsecond').submit(function(e){
+    e.preventDefault();  //for stopping the default action of an element from happening
+    var shead=$('.subheading').val();
+    var hnd=$(".sbhdg select").val();
+    $('main section:nth-child('+hnd+')').append('<div><h3>'+shead+'<button onclick="myfunction(this)"></button></h3></div>')
+    $('.formsecond')[0].reset()
+  });
+
+  $('.frmhdg select').change(function(){
+    // $(".sbhdg select option").remove(); //this is added for removing the selected option in subheading
+    $(".sbhdg select").append('<option value="Select Sub-Heading"></option>'); //this is added for append the heading in sub heading and form
+    var dhk=$(".frmhdg select").val();
+    $('main section:nth-child('+dhk+') div h3').each(function(key){
+      var tyu=$(this).text().replace("X","");
+      key=key+1
+      $('.sbhdg select').append('<option value="'+key+'">'+tyu+'</option>')
+    });
+  });
 
   $('.formfh').submit(function(e){
     e.preventDefault()
@@ -61,47 +94,42 @@ $(document).ready(function(){
 
     if(fminin=='checkbox'){
       var opn=opption.split(',');
-      var fr = $('<p></p>')
+      var asw = $('<p></p>')
       $(opn).each(function(key, fucntionvalue){
     		if(vaalue==fucntionvalue){
-    			$(fr).append('<p><label>'+fucntionvalue+'</label><input type= '+fminin+' value='+vaalue+' class= '+claase+' name='+naaame+' selected="selected"><button onclick="MYfunction(this)">X</button></p>');
-          // $(fr).append('<p><label>'+fucntionvalue+'</label><input type= '+fminin+' value='+vaalue+' class= '+claase+' name='+naaame+' selected="selected"></p>');
+    			$(asw).append('<p><label>'+fucntionvalue+'</label><input type= '+fminin+' value='+vaalue+' class= '+claase+' name='+naaame+' selected="selected"><button onclick="MYfunction(this)">X</button></p>');
     		}
     		else{
-    			$(fr).append('<p><label>'+fucntionvalue+'</label><input type= '+fminin+' value='+vaalue+' class= '+claase+' name='+naaame+'><button onclick="MYfunction(this)">X</button></p>');
-          // $(fr).append('<p><label>'+fucntionvalue+'</label><input type= '+fminin+' value='+vaalue+' class= '+claase+' name='+naaame+'></p>');
+    			$(asw).append('<p><label>'+fucntionvalue+'</label><input type= '+fminin+' value='+vaalue+' class= '+claase+' name='+naaame+'><button onclick="MYfunction(this)">X</button></p>');
     		}
     	});
-      $('main section:nth-child('+hjk+') div:nth-child('+hhh+') ').append(fr);
+      $('main section:nth-child('+hjk+') div:nth-child('+hhh+') ').append(asw);
     }	
     	
     else if(fminin=='radio'){
     	var opn=opption.split(',');
-      var fr = $('<p></p>')
+      var asw = $('<p></p>')
       $(opn).each(function(key,sval){
         if(vaalue==sval){
-          $(fr).append('<p><label>'+opn[key]+'</label><input type="'+fminin+'" class = '+claase+' value="'+vaalue+'" name="'+naaame+'"  checked="checked"><button onclick="MYfunction(this)">X</button></p>')
-          // $(fr).append('<p><label>'+opn[key]+'</label><input type="'+fminin+'" class = '+claase+' value="'+vaalue+'" name="'+naaame+'"  checked="checked"></p>')
+          $(asw).append('<p><label>'+sval+'</label><input type="'+fminin+'" class = '+claase+' value="'+vaalue+'" name="'+naaame+'"  checked="checked"><button onclick="MYfunction(this)">X</button></p>')
         }
         else{
-          $(fr).append('<p><label>'+opn[key]+'</label><input type="'+fminin+'" class = '+claase+' value="'+vaalue+'" name="'+naaame+'"><button onclick="MYfunction(this)">X</button></p>');
-          // $(fr).append('<p><label>'+opn[key]+'</label><input type="'+fminin+'" class = '+claase+' value="'+vaalue+'" name="'+naaame+'"></p>');
+          $(asw).append('<p><label>'+sval+'</label><input type="'+fminin+'" class = '+claase+' value="'+vaalue+'" name="'+naaame+'"><button onclick="MYfunction(this)">X</button></p>');
         }
       });
-      $('main section:nth-child('+hjk+') div:nth-child('+hhh+') ').append(fr);
+      $('main section:nth-child('+hjk+') div:nth-child('+hhh+') ').append(asw);
     }
     else if(fminin=='select'){
-      // $('main section:nth-child('+hjk+') div:nth-child('+hhh+')').append('<p><label>'+lbbl+'</label><input type='+fminin+' name='+naaame+' placeholder='+placcehol+'  class='+claase+' value='+vaalue+'><button onclick="MYfunction(this)">X</button></p>');
-      var opns=opn.split(',');
+      var opn=opption.split(',');
       var aws=$('<p><label>'+lbbl+'</label></p>')
-      var ae=$('<select class='+claase+' name='+naaame+'><option>select</option></select>').appendTo(aws)
-      var as=$('<button onclick="MYfunction(this)">X<button>').appendTo(aws);
-      for(i=0; i<opns.length;i++){
-        if(vaalue==opns[i]){
-          $(ae).append('<option value="'+opns[i]+'" selected="selected">' +opns[i]+'</option>')
+      var aes=$('<select class='+claase+' name='+naaame+'><option>select</option></select>').appendTo(aws)
+      var als=$('<button onclick="MYfunction(this)">X<button>').appendTo(aws);
+      for(i=0; i<opn.length;i++){
+        if(vaalue==opn[i]){
+          $(aes).append('<option value="'+opn[i]+'" selected="selected">'+opn[i]+'</option>')
         }else
         {
-          $(ae).append('<option value="'+opns[i]+'" selected="selected">' +opns[i]+'</option>')
+          $(aes).append('<option value="'+opn[i]+'">'+opn[i]+'</option>')
         }
       }
     }
@@ -131,7 +159,6 @@ $(document).ready(function(){
       $('main section:nth-child('+hjk+') div:nth-child('+hhh+') p:last-child '+sss).attr('readOnly','readOnly');
     }
 
-    // if($(".reeqquired").is(':checked')){
     if($(".required").is(':checked')){
       var sss=fminin
       if(fminin=='number' || fminin=='email' || fminin=='button' || fminin=='text' || fminin=='checkbox' || fminin=='file' || fminin=='radio')
@@ -142,37 +169,25 @@ $(document).ready(function(){
     }
     $('.formfh')[0].reset();  //this for reset form after submitting
   });
-
-  // below code is for localstorage
-  // var arra=[];
-  // if(localstorage.getItem('arra')){
-  //   var aa=JSON.parse(localstorage.getItem('arra'));
-  //   $(aa).each(function(index,vaalue){
-  //     index=index+1
-  //     $('main').append('<section><h2>'+vaalue.title+'<button onclick="MYfunction(this)">X</button></h2></section>');
-  //     $(".sbhdg select").append('<option value="'+index+'">'+value.title+'</option>');
-  //     $(value.subheading).each(function(index1,valuee){
-  //       var h=index;
-  //       $('main section:nth-child('+h+')').append('<div><h3>'+valuee.subtitle+'<button onclick="MYfunction(this)">X</button></h3></div>');
-  //       $(valuee.form).each(function(index2,vaalue2){
-  //         if(vaalue2.input=='select'){
-  //           var value=$('.valuee').val()
-  //           var opns=vaalue2.option
-  //           var aws=$('<p><label>'+vaalue2.label+'</label></p>')
-  //           var ae=$('<select claase='+vaalue2.claase+' name='+vaalue2.naaame+'><option>select</option>+'</select>').appendTo(aws);
-  //         }
-  //       })
-  //     })  
-  //   })
-  // }
-})
-
-
-// below function is for deleting the elements on deleting heading
+});
+  
 function Myfunction(thisd){
-  var w =$(thisd).parent().parent().remove()
-}
+  var a=$(thisd).parent().parent().remove(); //deleting the elements on deleting heading this one is correct
+  $(".select1 option").remove(); //comemnt it again this is for remove the sub-heading from from after deleting it and is incorrect because of not appending
+  $(".select1 select").append('<option value="select heading">Select Sub-Heading</option>');
+  // below is for removing from
+  $(".select4 option").remove(); //comment it again
+  $(".select4 select").append('<option value="select heading">Select heading</option>'); //comemnt it again this is for remove the sub-heading from from after deleting it and is incorrect because of not appending
+
+  $('main section h2').each(function(key){
+    key=key+1
+    var opp=$(this).text().replace("X","");
+    $(".sbhdg select1").append('<option value="'+key+'">'+opp+'</option>');
+    $(".frmhdg select4").append('<option value="'+key+'">'+opp+'</option>');
+  });
+};
 
 function MYfunction(thise){
   var q =$(thise).parent().remove()
-}
+};
+  
