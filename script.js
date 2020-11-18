@@ -122,8 +122,9 @@ $(document).ready(function(){
     else if(fminin=='select'){
       var opn=opption.split(',');
       var aws=$('<p><label>'+lbbl+'</label></p>')
-      var aes=$('<select class='+claase+' name='+naaame+'><option>select</option></select>').appendTo(aws)
+      var aes=$('<select class='+claase+' name='+naaame+'><option>Select Option</option></select>').appendTo(aws);
       var als=$('<button onclick="MYfunction(this)">X<button>').appendTo(aws);
+      // var als=$('<button onclick="MYfunction(this)">X<button>');
       for(i=0; i<opn.length;i++){
         if(vaalue==opn[i]){
           $(aes).append('<option value="'+opn[i]+'" selected="selected">'+opn[i]+'</option>')
@@ -132,6 +133,7 @@ $(document).ready(function(){
           $(aes).append('<option value="'+opn[i]+'">'+opn[i]+'</option>')
         }
       }
+      $('main section:nth-child('+hjk+') div:nth-child('+hhh+') ').append(aws);
     }
 
     else if(fminin=='textarea'){
