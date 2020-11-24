@@ -1,20 +1,17 @@
 $(document).ready(function(){
 	// from below local storage code begins
-	// var arra=[];
 	if(localStorage.getItem('arra')){
 		var jkl=JSON.parse(localStorage.getItem('arra')); //parsing the data so that data becomes a javascript object
 		$(jkl).each(function(index,value){   //for specifiying a function to run for each matched element
 			index=index+1
-			// console.log("index"); //value is coming
-			// console.log("value"); //value is coming
 			$('main').append('<section><h1>'+value.title+'<button onclick="MYfunction(this)">X</button></h1></section>');
 			$(".sbhdg select").append('<option value="'+index+'">'+value.title+'</option>');
-			// index=index+1
 			$(value.subheading).each(function(index2,value2){
 				$('main section:nth-child('+index+')').append('<div><h2>'+value2.subtitle+'<button onclick="MYfunction(this)">X</button></h2></div>');
 				$(value2.form).each(function(index3,value3){
 					if (value3.input == 'radio' || 'checkbox'){
-						if(index3==0){
+						// if(index3==0){
+						if(index3%4==0 || index3==0){
 							var we=index2+2; 
 							var aa = value3.option
 							var qq = $('<p></p>');
@@ -30,12 +27,9 @@ $(document).ready(function(){
 						}
 					}
 					else if(value3.input=='select'){
-					// else if(index3%4==0 || index3==0){
 						var we=index2+2;
-						// if(value3.input=='select'){
 						var vaalue=$('.vl').val();
 						var opn=value3.option
-						console.log(opn)
 						var asw=$('<p><label>'+value3.label+'</label></p>')
 						var aes=$('<select class='+value3.class+' name='+value3.name+'><option>select</option></select>').appendTo(asw);
 						var ass=$('<button onclick="MYfunction(thise)">X</button>').appendTo(asw);
@@ -54,7 +48,6 @@ $(document).ready(function(){
 					}
 						
 					var ws=index2+2;
-						// console.log("ws");
 					if (value3.disaablled==true){
 						$('main section:nth-child('+index+') div:nth-child('+ws+') p input').attr('disabled','disabled'); //attr: to sets or returns the values of the selected element
 					}
@@ -95,16 +88,12 @@ $(document).ready(function(){
 	// this is for sub heading
 	$(".formsecond").submit(function(e){
 		e.preventDefault();
-		var subheading = $('.head2').val();
+		var heads = $('.head2').val();
 		var headingindex = $('.select1').val();
-		$("main section:nth-child("+headingindex+")").append('<div><h2> ' +subheading+ '<button onclick="Myfunction(this)">X</button>'+'</h2></div>');
-		// $("main section:nth-child("+headingindex+")").append('<div><h2> ' +subheading+ '<button onclick="Myfunction(this)">X</button></h2></div>');
-		//below code is for local storage
-		arra[headingindex-1].subheading.push({'subtitle':subheading,'form':[]})  //tfor adding new item at the end of an array element
+		$("main section:nth-child("+headingindex+")").append('<div><h2> ' +heads+ '<button onclick="Myfunction(this)">X</button></h2></div>');
+		arra[headingindex-1].subheading.push({'subtitle':heads,'form':[]})  //tfor adding new item at the end of an array element
 		localStorage.setItem('arra',JSON.stringify(arra));
-		// till here is code of localStorage
-		$('.formsecond')[0].reset();
-		// $('.button2')[0].reset(); 
+		$('.formsecond')[0].reset();	
 	});
 
 	$(".select4").change(function(e){
@@ -114,9 +103,7 @@ $(document).ready(function(){
 		$(".select2").append('<option value="select">Select Sub Heading</option>');
 		$('main section:nth-child('+headingindex+') div h2').each(function(index2,value2){
 			index2=index2+1;
-				// var subhead = $(this).text()
 			var subhead = $(this).text().replace('X','') //this line is added for removing the X sign in appending
-			// key=key+1
 			$('.select2').append('<option value="'+index2+'">' +subhead+ '</option>');
 		});
 	});  
@@ -134,20 +121,15 @@ $(document).ready(function(){
 	$('.formfh').submit(function(e){
 		e.preventDefault()
 		var hjk=$(".frmhdg select").val();
-		// console.log(hjk)
 		var hhh=$(".sbhdg select").val();
-		// console.log(hhh)
 		var hhh = parseInt(hhh)+1;
 		var fminin=$('.select3 ').val();
-		// console.log(fminin)
 		var lbbl=$('.lable').val();
 		var naaame=$('.naaaam').val();
 		var placcehol=$('.plachol').val();
 		var claase=$('.clase').val();
 		var vaalue=$('.vl').val();
-		// console.log("value"+ vaalue)
 		var opption=$('.opti').val();
-		// console.log(opption)
 		var disaablled=false;
 		var readonlyy=false;
 		var reeqquired=false; 
@@ -156,18 +138,13 @@ $(document).ready(function(){
 			var opn=opption.split(',');
 			var asw = $('<p></p>');
 			$(opn).each(function(key, fucntionvalue){
-				// key=key+1;
-				// console.log("function value" +fucntionvalue)
 				if(vaalue==fucntionvalue){
-					$(asw).append('<label>'+fucntionvalue+'</label><input type="checkbox" value="'+vaalue+'" class= "'+claase+'" name="'+naaame+'"><button onclick="MYfunction(this)">X</button>');
+					$(asw).append('<label>'+fucntionvalue+'</label><input type="checkbox" value="'+vaalue+'" class= "'+claase+'" name="'+naaame+'" checked:"'+checked+'"><button onclick="MYfunction(this)">X</button>');
 				}
 				else{
 					$(asw).append('<label>'+fucntionvalue+'</label><input type="checkbox" value="'+vaalue+'" class= "'+claase+'" name="'+naaame+'"><button onclick="MYfunction(this)">X</button>');
 				}
-				// console.log(asw)
-				// below code is for localStorage
-				arra[hjk-1].subheading[hhh-2].form.push({'input':fminin,'label':fucntionvalue,'name':naaame,'class':claase,'value':vaalue,'disaablled':false, 'readonlyy':false,'reeqquired':false}) //for adding new item at the end of the array
-				// till here is the code of localStorage
+				arra[hjk-1].subheading[hhh-2].form.push({'input':fminin,'label':fucntionvalue,'name':naaame,'class':claase,'value':vaalue,'option':opn, 'disaablled':false, 'readonlyy':false,'reeqquired':false}) //for adding new item at the end of the array
 			});
 			$('main section:nth-child('+hjk+') div:nth-child('+hhh+') ').append(asw);
 		}	
@@ -177,14 +154,12 @@ $(document).ready(function(){
 			var qq = $('<p></p>');
 			$(opn).each(function(key,sval){
 				if(vaalue==sval){
-					$(qq).append('<label>'+sval+'</label><input type="'+fminin+'" class = "'+claase+'" value="'+vaalue+'" name="'+naaame+'"  checked="checked"><button onclick="MYfunction(this)">X</button>');
+					$(qq).append('<label>'+sval+'</label><input type="radio" class = "'+claase+'" value="'+vaalue+'" name="'+naaame+'"  checked="checked"><button onclick="MYfunction(this)">X</button>');
 				}
 				else{
-					$(qq).append('<label>'+sval+'</label><input type="'+fminin+'" class = "'+claase+'" value="'+vaalue+'" name="'+naaame+'"><button onclick="MYfunction(this)">X</button>');
+					$(qq).append('<label>'+sval+'</label><input type="radio" class = "'+claase+'" value="'+vaalue+'" name="'+naaame+'"><button onclick="MYfunction(this)">X</button>');
 				}
-				// below code is for localStorage
 				arra[hjk-1].subheading[hhh-2].form.push({'input':fminin,'label':sval,'name':naaame,'class':claase,'value':vaalue,'option':opn,'disaablled':false, 'readonlyy':false,'reeqquired':false})
-				// till here is the code of localStorage
 			});
 			$('main section:nth-child('+hjk+') div:nth-child('+hhh+') ').append(qq);
 		}
@@ -193,7 +168,6 @@ $(document).ready(function(){
 			var aws=$('<p><label>'+lbbl+'</label></p>')
 			var aes=$('<select class='+claase+' name='+naaame+'><option>Select Option</option></select>').appendTo(aws);
 			var als=$('<button onclick="MYfunction(this)">X<button>').appendTo(aws);
-			// var als=$('<button onclick="MYfunction(this)">X<button>');
 			for(i=0; i<opn.length;i++){
 				if(vaalue==opn[i]){
 					$(aes).append('<option value="'+opn[i]+'" selected="selected">'+opn[i]+'</option>')
@@ -202,23 +176,17 @@ $(document).ready(function(){
 					$(aes).append('<option value="'+opn[i]+'">'+opn[i]+'</option>')
 				}
 			}
-			// below code is for localStorage
-				arra[hjk-1].subheading[hhh-2].form.push({'input':fminin,'label':lbbl,'name':naaame,'class':claase,'value':vaalue,'option':opn,'disaablled':false, 'readonlyy':false,'reeqquired':false})
-				// till here is the code of localStorage
+			arra[hjk-1].subheading[hhh-2].form.push({'input':fminin,'label':lbbl,'name':naaame,'class':claase,'value':vaalue,'option':opn,'disaablled':false, 'readonlyy':false,'reeqquired':false})
 			$('main section:nth-child('+hjk+') div:nth-child('+hhh+') ').append(aws);
 		}
 
 		else if(fminin=='textarea'){
 			$('main section:nth-child('+hjk+') div:nth-child('+hhh+')').append('<p><label>'+lbbl+'</label><textarea name='+naaame+' placeholder='+placcehol+' rows="4" cols="10" value='+vaalue+'></textarea><button>X</button></p>');
-			// below code is for localStorage
 			arra[hjk-1].subheading[hhh-2].form.push({'input':fminin,'label':lbbl,'name':naaame,'class':claase,'value':vaalue,'placeholder':placcehol,'disaablled':false, 'readonlyy':false,'reeqquired':false})
-			// till here is the code of localStorage
 		}
 		else {
 			$('main section:nth-child('+hjk+') div:nth-child('+hhh+')').append('<p><label>'+lbbl+'</label><input type='+fminin+' name='+naaame+' placeholder='+placcehol+'  class='+claase+' value='+vaalue+'><button onclick="MYfunction(this)">X</button></p>');
-			// below code is for localStorage
 			arra[hjk-1].subheading[hhh-2].form.push({'input':fminin,'label':lbbl,'name':naaame,'class':claase,'value':vaalue,'placeholder':placcehol,'disaablled':false, 'readonlyy':false,'reeqquired':false})
-			// till here is the code of localStorage
 		}
 		
 		if($(".disable").is(':checked')){
@@ -228,15 +196,8 @@ $(document).ready(function(){
 				sss='input'
 			}
 			$('main section:nth-child('+hjk+') div:nth-child('+hhh+') p:last-child '+sss).attr('disabled','disabled');
-			// below code is for localStorage
 			arra[hjk-1].subheading[hhh-2].form.push({'disaablled':true})
-			// till here is the code of localStorage
 		}
-		// else{
-		//    // below code is for localStorage
-		//   arra[hjk-1].subheading[hhh-2].form.push({'disaablled':false})
-		//   // till here is the code of localStorage
-		// }
 
 		if($(".readonly").is(':checked')){
 			var sss=fminin
@@ -245,15 +206,8 @@ $(document).ready(function(){
 				sss='input'
 			}
 			$('main section:nth-child('+hjk+') div:nth-child('+hhh+') p:last-child '+sss).attr('readOnly','readOnly');
-			 // below code is for localStorage
 			arra[hjk-1].subheading[hhh-2].form.push({'readonlyy':true})
-			// till here is the code of localStorage
 		}
-		// else{
-		// //    // below code is for localStorage
-		//   arra[hjk-1].subheading[hhh-2].form.push({'readonlyy':false})
-		// //   // till here is the code of localStorage
-		// }
 
 		if($(".required").is(':checked')){
 			var sss=fminin
@@ -262,40 +216,30 @@ $(document).ready(function(){
 				sss='input'
 			}
 			$('main section:nth-child('+hjk+') div:nth-child('+hhh+') p:last-child '+sss).attr('required','required');
-			 // below code is for localStorage
 			arra[hjk-1].subheading[hhh-2].form.push({'reeqquired':true})
-			// till here is the code of localStorage
 		}
-		 // below code is for localStorage
-		// else{
-		//     arra[hjk-1].subheading[hhh-2].form.push({'reeqquired':false})
-		// }
 		localStorage.setItem('arra',JSON.stringify(arra));
-			// till here is the code of localStorage
-		$('.formfh')[0].reset()  //this for reset form after submitting
+		$('.formfh')[0].reset()
 	});
 });
 	
 function Myfunction(thisd){
-	$(thisd).parent().parent().remove(); //deleting the elements on deleting heading this one is correct
-	$(".select1 option").remove(); //comemnt it again this is for remove the sub-heading from from after deleting it and is incorrect because of not appending
-	$(".select1").append('<option value="select heading">Select heading</option>'); //comemnt it again this is for remove the sub-heading from from after deleting it and is incorrect because of not appending
+	$(thisd).parent().parent().remove(); //deleting the elements on deleting heading 
+	$(".select1 option").remove(); 
+	$(".select1").append('<option value="select heading">Select heading</option>'); 
 	// below is for removing from form
-	$(".select4 option").remove(); //comment it again
+	$(".select4 option").remove();
 	$(".select4").append('<option value="select heading">Select heading</option>');
 
 
 	$('main section h1').each(function(key){
 		key=key+1
 		var opp=$(this).text().replace("X","");
-		// $(".select1 select").append('<option value="'+key+'">'+opp+'</option>');
 		$(".select1").append('<option value="'+key+'">'+opp+'</option>');
-		// below line is added by me for avoiding the append in form
 		$(".select4").append('<option value="'+key+'">'+opp+'</option>');
 	});
 };
 
 function MYfunction(thise){
-		// var q =$(thise).parent().remove();
 	$(thise).parent().remove();
 };
