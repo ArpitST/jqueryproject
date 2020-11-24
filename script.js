@@ -26,7 +26,7 @@ $(document).ready(function(){
 							$('main section:nth-child('+index+') div:nth-child('+we+')').append(qq);
 						}
 					}
-					else if(value3.input=='select'){
+					if(value3.input=='select'){
 						var we=index2+2;
 						var vaalue=$('.vl').val();
 						var opn=value3.option
@@ -90,7 +90,7 @@ $(document).ready(function(){
 		e.preventDefault();
 		var heads = $('.head2').val();
 		var headingindex = $('.select1').val();
-		$("main section:nth-child("+headingindex+")").append('<div><h2> ' +heads+ '<button onclick="Myfunction(this)">X</button></h2></div>');
+		$("main section:nth-child("+headingindex+")").append('<div><h2> ' +heads+ '<button onclick="Myfunction(this)">X</button>'+'</h2></div>');
 		arra[headingindex-1].subheading.push({'subtitle':heads,'form':[]})  //tfor adding new item at the end of an array element
 		localStorage.setItem('arra',JSON.stringify(arra));
 		$('.formsecond')[0].reset();	
@@ -165,9 +165,9 @@ $(document).ready(function(){
 		}
 		else if(fminin=='select'){
 			var opn=opption.split(',');
-			var aws=$('<p><label>'+lbbl+'</label></p>')
+			var aws=$('<p><label>'+lbbl+'</label></p>');
 			var aes=$('<select class='+claase+' name='+naaame+'><option>Select Option</option></select>').appendTo(aws);
-			var als=$('<button onclick="MYfunction(this)">X<button>').appendTo(aws);
+			var cc = $('<button onclick="MYfunction(this)">X</button>').appendTo(aws);
 			for(i=0; i<opn.length;i++){
 				if(vaalue==opn[i]){
 					$(aes).append('<option value="'+opn[i]+'" selected="selected">'+opn[i]+'</option>')
@@ -230,8 +230,6 @@ function Myfunction(thisd){
 	// below is for removing from form
 	$(".select4 option").remove();
 	$(".select4").append('<option value="select heading">Select heading</option>');
-
-
 	$('main section h1').each(function(key){
 		key=key+1
 		var opp=$(this).text().replace("X","");
