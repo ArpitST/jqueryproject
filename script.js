@@ -3,16 +3,18 @@ $(document).ready(function(){
 	if(localStorage.getItem('arra')){
 		var jkl=JSON.parse(localStorage.getItem('arra')); //parsing the data so that data becomes a javascript object
 		$(jkl).each(function(index,value){   //for specifiying a function to run for each matched element
-			index=index+1
 			$('main').append('<section><h1>'+value.title+'<button onclick="MYfunction(this)">X</button></h1></section>');
 			$(".sbhdg select").append('<option value="'+index+'">'+value.title+'</option>');
+			index=index+1
 			$(value.subheading).each(function(index2,value2){
-				$('main section:nth-child('+index+')').append('<div><h2>'+value2.subtitle+'<button onclick="MYfunction(this)">X</button></h2></div>');
+				// console.log(index)
+				$('main section:nth-child('+index+')').append('<div><h2>'+value2.subtitle+'<button onclick=MYfunction(this)>X</button></h2></div>');
+				index2=index2+1;
 				$(value2.form).each(function(index3,value3){
 					if (value3.input == 'radio' || 'checkbox'){
 						// if(index3==0){
-						if(index3%4==0 || index3==0){
-							var we=index2+2; 
+						// if(index3%4==0 || index3==0){
+							// var we=index2+2; 
 							var aa = value3.option
 							var qq = $('<p></p>');
 							$(aa).each(function(key,sval){
@@ -23,8 +25,8 @@ $(document).ready(function(){
 									$(qq).append('<label>'+sval+'</label><input type="'+value3.input+'" class = "'+value3.class+'" value="'+value3.value+'" name="'+value3.name+'"><button onclick="MYfunction(this)">X</button>');
 								}
 							});
-							$('main section:nth-child('+index+') div:nth-child('+we+')').append(qq);
-						}
+							$('main section:nth-child('+index+') div:nth-child('+(index2+1)+')').append(qq);
+						//}
 					}
 					if(value3.input=='select'){
 						var we=index2+2;
@@ -41,10 +43,10 @@ $(document).ready(function(){
 								$(aes).append('<option value="'+opn[i]+'">'+opn[i]+'</option>')
 							}
 						}	
-						$('main section:nth-child('+index+') div:nth-child('+we+')').append(asw);
+						$('main section:nth-child('+index+') div:nth-child('+aa+')').append(asw);
 					}	
 					else{
-						$('main section:nth-child('+index+') div:nth-child('+we+')').append('<p><label>'+value3.label+'</label><input type="'+value3.input+'" class="'+value3.class+'" value="'+value3.value+'" name="'+value3.name+'" option = "'+value3.option+'"><button onclick="MYfunction(this)">X</button></p>');   
+						$('main section:nth-child('+index+') div:nth-child('+aa+')').append('<p><label>'+value3.label+'</label><input type="'+value3.input+'" class="'+value3.class+'" value="'+value3.value+'" name="'+value3.name+'" option = "'+value3.option+'"><button onclick="MYfunction(this)">X</button></p>');
 					}
 						
 					var ws=index2+2;
@@ -62,6 +64,14 @@ $(document).ready(function(){
 		});
 	}
 	var arra=[];
+
+	// function w(){
+	// 	localStorage.setItem('arra');
+
+	// }
+	// function w(){
+	// 	localStorage.getItem('arra');
+	// }
 
 	// and locla storage code ends here
 	$(".formfirst").submit(function(e){
