@@ -12,9 +12,9 @@ $(document).ready(function(){
 				index2=index2+1;
 				$(value2.form).each(function(index3,value3){
 					if (value3.input == 'radio' || 'checkbox'){
-						// if(index3==0){
+						if(index3==0){
 						// if(index3%4==0 || index3==0){
-							// var we=index2+2; 
+							var we=index2+2; 
 							var aa = value3.option
 							var qq = $('<p></p>');
 							$(aa).each(function(key,sval){
@@ -26,7 +26,7 @@ $(document).ready(function(){
 								}
 							});
 							$('main section:nth-child('+index+') div:nth-child('+(index2+1)+')').append(qq);
-						//}
+						}
 					}
 					if(value3.input=='select'){
 						var we=index2+2;
@@ -43,10 +43,11 @@ $(document).ready(function(){
 								$(aes).append('<option value="'+opn[i]+'">'+opn[i]+'</option>')
 							}
 						}	
-						$('main section:nth-child('+index+') div:nth-child('+aa+')').append(asw);
+						$('main section:nth-child('+index+') div:nth-child('+we+')').append(asw);
 					}	
 					else{
-						$('main section:nth-child('+index+') div:nth-child('+aa+')').append('<p><label>'+value3.label+'</label><input type="'+value3.input+'" class="'+value3.class+'" value="'+value3.value+'" name="'+value3.name+'" option = "'+value3.option+'"><button onclick="MYfunction(this)">X</button></p>');
+						var we=index2+2;
+						$('main section:nth-child('+index+') div:nth-child('+we+')').append('<p><label>'+value3.label+'</label><input type="'+value3.input+'" class="'+value3.class+'" value="'+value3.value+'" name="'+value3.name+'" option = "'+value3.option+'"><button onclick="MYfunction(this)">X</button></p>');
 					}
 						
 					var ws=index2+2;
@@ -65,12 +66,9 @@ $(document).ready(function(){
 	}
 	var arra=[];
 
+
 	// function w(){
 	// 	localStorage.setItem('arra');
-
-	// }
-	// function w(){
-	// 	localStorage.getItem('arra');
 	// }
 
 	// and locla storage code ends here
